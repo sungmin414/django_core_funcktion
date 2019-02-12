@@ -1,3 +1,4 @@
+# 속성오버라이딩
 ## model
 
 + 기본 뷰(`View, TemplateView, RedirectView`) 3개를 제외하고 모든 제네릭 뷰에서 사용하는 속성
@@ -8,10 +9,18 @@
 + 출력 대상이 되는 QuerySet 객체를 지정
 + queryset 속성을 지정하면 `model 속성은 무시`
 
+```
+예) views.py
+class TestPostLV(ListView):
+    #model = Post               # 주석 처리
+    queryset = Post.objects.all()[:5]
+```
+
 ## template_name
 
 + 모든 제네릭뷰에서 사용하는 속성
 + 템플릿 파일명을 문자열로 지정
+
 
 ## context_object_name
 
